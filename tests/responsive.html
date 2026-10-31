@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CSS LAB responsive verification</title>
+  </head>
+  <body
+    style="
+      background: #10131d;
+      color: #e8e9f2;
+      font: 15px system-ui;
+      padding: 24px;
+    "
+  >
+    <h1>CSS LAB responsive verification</h1>
+    <p id="status">Checking layout widths…</p>
+    <ol id="results"></ol>
+    <iframe
+      title="Responsive application under test"
+      style="height: 780px; border: 1px solid #646174; background: #10131d"
+      id="app"
+    ></iframe>
+    <script type="module">
+      const frame = document.querySelector("#app");
+      let passed = 0,
+        failed = 0;
+      const tests = [
+        ["home", 320],
+        ["home", 390],
+        ["home", 768],
+        ["learn", 390],
+        ["labs/flex", 390],
+        ["labs/grid", 390],
+        ["labs/box", 320],
+        ["playground", 390],
+        ["projects", 390],
+        ["teacher", 390],
+        ["reference", 320],
+        ["settings", 390],
+      ];
+      for (const [page, width] of tests) {
+        frame.style.width = width + "px";
+        await new Promise((resolve) => {
+          frame.onload = () => setTimeout(resolve, 350);
+          frame.src =
+            "../index.html?check=" +
+            encodeURIComponent(page + width) +
+            "#" +
+            page;
+        });
+        const doc = frame.contentDocument;
+        const overflow =
+          doc.documentElement.scrollWidth > frame.contentWindow.innerWidth + 1;
+        const heading = doc.querySelector("main h1");
+        const menu = doc.querySelector(".menu-button");
+        const visibleMenu =
+          frame.contentWindow.getComputedStyle(menu).display !== "none";
+        const ok = !overflow && !!heading && (width > 760 || visibleMenu);
+        const li = document.createElement("li");
+        li.textContent = `${ok ? "PASS" : "FAIL"} · ${page} at ${width}px · document ${doc.documentElement.scrollWidth}px · viewport ${frame.contentWindow.innerWidth}px`;
+        li.style.color = ok ? "#9bdbb8" : "#ffaaa0";
+        document.querySelector("#results").append(li);
+        ok ? passed++ : failed++;
+      }
+      document.querySelector("#status").textContent =
+        `Completed: ${passed} passed, ${failed} failed.`;
+      document.title = `${failed ? "FAIL" : "PASS"} · CSS LAB responsive verification`;
+      frame.style.width = "390px";
+      frame.src = "../index.html#home";
+    </script>
+  </body>
+</html>
