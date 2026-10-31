@@ -20,7 +20,7 @@ Verified on 31 October 2026.
 - Save and Restore Saved restore the experiment. Export generates the HTML/CSS ZIP and reports success.
 - Lesson bookmark changes to Bookmarked. Mark Complete & Continue advances to chapter two.
 - Main navigation destinations render: onboarding, course, history, labs, challenges, projects, Bug Hunter, reference, revision, roadmap, teacher, settings. Responsive navigation opens the drawer and closes when a lesson destination is selected. Hidden mobile navigation is inert; Escape and Tab handling are implemented.
-- Teacher lesson switching replaces the script, example, quiz prompt, homework, and notes. Starting the timer changes Start to Pause.
+- Teacher lesson switching replaces the script, example, quiz prompt, homework, and notes. In the final production build the timer advanced to 00:25, paused, and returned to Start. Presenter fullscreen opened and closed successfully. The split CodeMirror editor loaded correctly in production.
 
 ## Fixes found during verification
 
