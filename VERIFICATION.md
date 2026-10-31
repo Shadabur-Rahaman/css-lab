@@ -33,5 +33,5 @@ Verified on 31 October 2026.
 - Browser checks used the available Chromium-based in-app browser. Real Safari, Firefox, physical touch devices, assistive technology, and real mobile zoom have not been tested.
 - Native-browser tests exercise the rendering/security engine and representative UI flows; they do not prove every possible learner-authored HTML/CSS program is safe or performant.
 - Fullscreen APIs and clipboard availability depend on the browser and embedding context. Import validation is covered by unit tests; a complete automated file-picker/reset workflow was not run.
-- Source and GitHub Pages workflow are ready. Public GitHub repository creation/deployment has not occurred: automatic approval review requires explicit authorization for public visibility under `Shadabur-Rahaman`.
+- The user explicitly approved public publication. Source is available at https://github.com/Shadabur-Rahaman/css-lab and the GitHub Pages workflow manages deployment to https://shadabur-rahaman.github.io/css-lab/. GitHub's initial build and test job passed on its Linux runner.
 - Course coverage is introductory. Advanced masterclasses, exhaustive reference content, and additional dedicated studios remain future work as listed in the README. Do not describe this release as the completed full advanced curriculum.

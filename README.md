@@ -2,6 +2,10 @@
 
 “Don’t just write CSS. Understand why your design works.”
 
+Website: https://shadabur-rahaman.github.io/css-lab/
+
+Source repository: https://github.com/Shadabur-Rahaman/css-lab
+
 A separate React + TypeScript + Vite application. It does not modify HTML LAB or JS LAB. Native CSS is the subject of every experiment. Tailwind is available for platform styling; the visual interface is predominantly authored CSS. Lucide provides icons, Motion provides a restrained entrance, and CodeMirror supplies real HTML/CSS editing and undo/redo.
 
 ## Run
